@@ -256,7 +256,7 @@
                                 <th>Integer</th>
                             </tr>
                             <tr class="fragment">
-                                <th>Value 1</th>
+                                <th>Entity 1</th>
                                 <th>|</th>
                                 <th>"John Doe"</th>
                                 <th>|</th>
@@ -265,7 +265,7 @@
                                 <th>21</th>
                             </tr>
                             <tr class="fragment">
-                                <th>Value 2</th>
+                                <th>Entity 2</th>
                                 <th>|</th>
                                 <th>"Jane Doe"</th>
                                 <th>|</th>
@@ -274,7 +274,7 @@
                                 <th>22</th>
                             </tr>
                             <tr class="fragment">
-                                <th>Value 3</th>
+                                <th>Entity 3</th>
                                 <th>|</th>
                                 <th>"Mary Smith"</th>
                                 <th>|</th>
@@ -296,25 +296,97 @@
                 </section>
 
                 <section>
+                    <h1>Exercise !</h1>
+                </section>
+
+                <section>
+                    <h3>Model</h3>
+                    <h3>For a veterinarian</h3>
+                    <h3>cat record?</h3>
+                </section>
+
+                <section>
+                    <h2>Model</h2>
+                    <h3>
+                      <ul>
+                        <li>Field names</li>
+                        <li>Field types</li>
+                      </ul>
+                    <h3>
+                </section>
+
+                <section>
+                    <h2>Model</h2>
+                    <h3>For student records</h3>
+                </section>
+
+                <section>
                     <h3>Datastore Client Library</h3>
                     <div class="fragment">
                     <pre><code class="language-python">
-from google.appengine.api import ndb
+from google.appengine.ext import ndb
                     </code></pre>
                     </div>
                     <div class="fragment">
                     <pre><code class="language-python">
-my_user = users.get_current_user()
+class Student(ndb.Model):
                     </code></pre>
                     </div>
                     <div class="fragment">
                     <pre><code class="language-python">
-nick_name = my_user.nickname()
+    name = ndb.StringProperty(required=True)
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+    university = ndb.StringProperty(required=True)
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+    age = ndb.IntegerProperty(required=False)
                     </code></pre>
                     </div>
                 </section>
 
+                <section>
+                    <h3>Creating a Student Entity</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+student_instance = Student(name="Jon Doe", university="MIT")
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+student_instance.put()
+                    </code></pre>
+                    </div>
+                </section>
 
+                <section>
+                    <h1>Exercise !</h1>
+                </section>
+
+                <section>
+                    <h3>Write an AppEngine app</h3>
+                    <h3>that will</h3>
+                    <ul>
+                        <li class="fragment">Take from URL Query line
+                          <ul>
+                            <li class="fragment">Student Name</li>
+                            <li class="fragment">Student University</li>
+                          </ul>
+                        </li>
+                        <li class="fragment">Create a Student instance</li>
+                        <li class="fragment">Write the instance in Datastore</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Manually</h2>
+                    <h2>Inspecting</h2>
+                    <h2>Datastore</h2>
+                </section>
 
             </div>
 
