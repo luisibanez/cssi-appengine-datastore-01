@@ -198,6 +198,60 @@
                     </h3>
                 </section>
 
+                <section>
+                    <h1>A Record</h1>
+                    <h1>=</h1>
+                    <h1>Datastore Model</h1>
+                </section>
+
+                <section>
+                    <h1>Student</h1>
+                    <h1>Model</h1>
+                </section>
+
+                <section>
+                    <h2>Student Model</h2>
+                    <h3>
+                      <ul>
+                        <li class="fragment">Name</li>
+                        <li class="fragment">University</li>
+                        <li class="fragment">Age</li>
+                      </ul>
+                    </h3>
+                </section>
+
+                <section>
+                    <h2>Fields Types</h2>
+                    <h3>
+                      <ul>
+                        <li class="fragment">Name:   String</li>
+                        <li class="fragment">University:  String:</li>
+                        <li class="fragment">Age:       Integer</li>
+                      </ul>
+                    </h3>
+                </section>
+
+
+                <section>
+                    <h3>Datastore Client Library</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+from google.appengine.api import ndb
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+my_user = users.get_current_user()
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+nick_name = my_user.nickname()
+                    </code></pre>
+                    </div>
+                </section>
+
+
 
             </div>
 
