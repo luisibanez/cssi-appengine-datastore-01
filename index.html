@@ -312,7 +312,7 @@
                         <li>Field names</li>
                         <li>Field types</li>
                       </ul>
-                    <h3>
+                    </h3>
                 </section>
 
                 <section>
@@ -373,7 +373,7 @@ print one_student.university
                 </section>
 
                 <section>
-                    <h3>Modifying Attributes</h3>
+                    <h3>Attributes</h3>
                     <div class="fragment">
                     <pre><code class="language-python">
 one_student = Student()
@@ -397,10 +397,20 @@ print one_student.age
                 </section>
 
                 <section>
-                    <h3>Invoking Constructor</h3>
+                    <h3>Constructor</h3>
                     <div class="fragment">
                     <pre><code class="language-python">
-one_student = Student(name="Mary Smith", age=23, university="MIT")
+class Student:
+
+  def __init__(self, name, age, university):
+    self.name = name
+    self.age = age
+    self.university = university
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+one_student = Student(name="Mary", age=23, university="MIT")
                     </code></pre>
                     </div>
                     <div class="fragment">
@@ -410,6 +420,66 @@ print one_student.name
 print one_student.university
                     </code></pre>
                     </div>
+                </section>
+
+                <section>
+                    <h3>Methods</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+class Student:
+  age = 25
+  name = "John Doe"
+  university = "UNC"
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+  def printMe(self):
+    print 'name: ', self.name
+    print 'age: ', self.age
+    print 'university: ', self.university
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+one_student = Student(name="Leroy", age=20, university="UCLA")
+one_student.printMe()
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h1>Exercise !</h1>
+                </section>
+
+                <section>
+                    <p>Write a Python Class</p>
+                    <p>Representing a Song</p>
+                    <p>
+                      <ul>
+                        <li>Title</li>
+                        <li>Singer</li>
+                        <li>Author</li>
+                        <li>Genre</li>
+                        <li>Year</li>
+                      </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <p>Write Methods</p>
+                    <p>
+                      <ul>
+                        <li>__init__</li>
+                        <li>printMe</li>
+                      </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Datastore</h2>
+                    <h2>Client </h2>
+                    <h2>Library</h2>
                 </section>
 
                 <section>
