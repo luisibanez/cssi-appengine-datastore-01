@@ -741,7 +741,26 @@ self.response.write(key.get().name)
                 </section>
 
                 <section>
-                    <h3>Using the Key</h3>
+                    <h3>Key to Id</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+key = student_instance.put()
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+id = key.id()
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+student = Student.get_by_id(id)
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Id to Key</h3>
                     <div class="fragment">
                     <pre><code class="language-python">
 key = ndb.Key('Student', id)
@@ -760,23 +779,59 @@ key.get().name
                 </section>
 
                 <section>
-                    <h3>Using the Key</h3>
+                    <h3>Querying</h3>
                     <div class="fragment">
                     <pre><code class="language-python">
-key = student_instance.put()
+student_query = Student.query()
                     </code></pre>
                     </div>
                     <div class="fragment">
                     <pre><code class="language-python">
-id = key.id()
+student_data = student_query.fetch()
                     </code></pre>
                     </div>
                     <div class="fragment">
                     <pre><code class="language-python">
-student = Student.get_by_id(id)
+template_values = {
+    'students' : student_data
+}
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+template = JINJA_ENVIRONMENT.get_template('index.html')
+self.response.write(template.render(template_values))
                     </code></pre>
                     </div>
                 </section>
+
+                <section>
+                    <h3>Keys in URLs</h3>
+                    <div class="fragment">
+                    <p>Get id and navigate to that url</p>
+                    <pre><code class="language-python">
+self.redirect('/view_student?key=%s' % key.urlsafe())
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <p>Get an entity from an ID</p>
+                    <pre><code class="language-python">
+key = ndb.Key(urlsafe=self.request.get("key"))
+student = key.get()
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Query</h3>
+                    <p><a href="https://cloud.google.com/appengine/docs/python/ndb/queryclass">https://cloud.google.com/appengine/docs/python/ndb/queryclass</a></p>
+                </section>
+
+                <section>
+                    <h3>Model</h3>
+                    <p><a href="https://cloud.google.com/appengine/docs/python/ndb/modelclass">https://cloud.google.com/appengine/docs/python/ndb/modelclass</a></p>
+                </section>
+
 
             </div>
 
