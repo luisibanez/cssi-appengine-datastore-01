@@ -646,6 +646,138 @@ dev_appserver.py . --datastore_consistency_policy=consistent
                     </ul>
                 </section>
 
+                <section>
+                    <h3>Consistency Options</h3>
+                    <pre><code>--datastore_consistency_policy=</code></pre>
+                    <div class="fragment"><pre><code>
+consistent
+                    </code></pre></div>
+                    <div class="fragment"><pre><code>
+time
+                    </code></pre></div>
+                    <div class="fragment"><pre><code>
+random
+                    </code></pre></div>
+                </section>
+
+                <section>
+                    <h1>Exercise !</h1>
+                </section>
+
+                <section>
+                    <h3>Write an AppEngine app</h3>
+                    <h3>that will</h3>
+                    <ul>
+                        <li class="fragment">Import ndb and define a student model</li>
+                        <li class="fragment">Make a GET handler for /add_student</li>
+                        <ul>
+                            <li class="fragment">Create a form with a single button here.</li>
+                            <li class="fragment">Make it post to /add_student.</li>
+                        </ul>
+                        <li class="fragment">Make a POST handler for /add_student</li>
+                        <ul>
+                            <li class="fragment">Create a Student entity.</li>
+                            <li class="fragment">Put it in the Datastore.</li>
+                            <li class="fragment">Write a confirmation message in the response.</li>
+                        </ul>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Testing the App</h2>
+                    <p>
+                      <ul>
+                        <li class="fragment">Browse to /add_student</li>
+                        <li class="fragment">Add three students</li>
+                        <li class="fragment">Inspect Datastore admin</li>
+                        <li class="fragment">Stop App</li>
+                        <li class="fragment">Restart App</li>
+                        <li class="fragment">Inspect Datastore admin again</li>
+                      </ul>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Datastore</h2>
+                    <h2>Keys</h2>
+                </section>
+
+                <section>
+                    <h3>Get with Key</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+key = student_instance.put()
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+key.get()
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+key.get().name
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+self.response.write(key.get().name)
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <a href="#" class="image">
+                    <img width="100%" src="images/AppEngine_datastore_interface_03.png" alt="Screenshot of Datastore interface with two records">
+                    </a>
+                    <p>AppEngine Datastore Interface</p>
+                </section>
+
+                <section>
+                    <a href="#" class="image">
+                    <img width="100%" src="images/AppEngine_datastore_interface_04.png" alt="Screenshot of Datastore interface with record id and key">
+                    </a>
+                    <p>Record Key and Id</p>
+                </section>
+
+                <section>
+                    <h3>Using the Key</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+key = ndb.Key('Student', id)
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+key.get()
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+key.get().name
+                    </code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Using the Key</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+key = student_instance.put()
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+id = key.id()
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
+student = Student.get_by_id(id)
+                    </code></pre>
+                    </div>
+                </section>
+
             </div>
 
         </div>
